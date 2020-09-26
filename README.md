@@ -12,7 +12,7 @@ on Windows
     python3 run.py runserver
 
 ### Iniciando o banco
-    python3 run.py dv init
+    python3 run.py db init
 
 ### Executando os Migrations
     python3 run.py db migrate
