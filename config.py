@@ -1,6 +1,5 @@
-DEBUG = True
 
-SQLALCHEMY_DATABASE_URI = 'mysql://root:''@localhost/projetovisao' #configuração do banco -> uri de conexão do banco de dados
+DEBUG = True
+SQLALCHEMY_DATABASE_URI = 'mysql://root:''@localhost/dbVisao'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
-SECRET_KEY = 'chave-secreta'
