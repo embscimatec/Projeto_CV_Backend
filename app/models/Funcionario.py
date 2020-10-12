@@ -8,7 +8,7 @@ class Funcionario(db.Model):
     senha = db.Column(db.String, nullable = False)
 
     # Relação com pessoa
-    pessoaId = db.Column(db.Integer, ForeignKey('pessoa.id'), primary_key = True)
+    pessoaId = db.Column(db.Integer, db.ForeignKey('pessoa.id'), primary_key = True)
     pessoa = db.relationship("Pessoa", back_populates = "funcionario")
     
     
