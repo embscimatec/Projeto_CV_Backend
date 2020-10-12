@@ -4,7 +4,7 @@ from app import db
 class ContatoEmergencia(db.Model):
     __tablename__ = "contatoEmergencia"
     
-    contatoEmergenciaId = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True)
     nome = db.Column(db.String(50), nullable = False)
     relacao = db.Column(db.String(20), nullable = False)
     email = db.Column(db.String(80), nullable = False)

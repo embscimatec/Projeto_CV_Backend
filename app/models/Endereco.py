@@ -5,7 +5,7 @@ from app import db
 class Endereco(db.Model):
     __tablename__ = "endereco"
     
-    enderecoId = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True)
     cep = db.Column(db.String, nullable = True)
     logradouro = db.Column(db.String, nullable = False)
     numero = db.Column(db.Integer, nullable = True)
