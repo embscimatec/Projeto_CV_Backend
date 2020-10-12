@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, Float, Boolean, PickleType
+from sqlalchemy.orm import relationship
 from app import db
 
 class Endereco(db.Model):
@@ -12,6 +13,8 @@ class Endereco(db.Model):
     cidade = db.Column(db.String, nullable = False)
     estado = db.Column(db.String, nullable = False)
     complemento = db.Column(db.String, nullable = True)
+    instituicao = db.relationship("Instituicao", uselist = False, backref = "endereco")
+    pessoa = db.relationship("Pessoa", back_populates = "endereco")
     
     def __init__(self, cep, logradouro, numero, bairro, cidade, estado, complemento):
         self.cep = cep

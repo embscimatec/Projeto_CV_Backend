@@ -8,6 +8,7 @@ class Imagem(db.Model):
     encode = db.Column(db.String, nullable = False)
     url = db.Column(db.String, nullable = False)
     extensao = db.Column(db.String(10), nullable = False)
+    pessoa = db.relationship("Pessoa", uselist = False, back_populates = "imagem")
     
     def __init__(self, encode, url, extensao):
         self.encode = encode
