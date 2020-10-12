@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, Float, Boolean, PickleType
 from app import db
+from sqlalchemy.orm import relationship
 
 class Funcionario(db.Model):
     __tablename__ = "funcionario"
@@ -9,7 +10,7 @@ class Funcionario(db.Model):
 
     # Relação com pessoa
     pessoaId = db.Column(db.Integer, db.ForeignKey('pessoa.id'), primary_key = True)
-    pessoa = db.relationship("Pessoa", back_populates = "funcionario")
+    pessoa = relationship("Pessoa", back_populates = "funcionario")
     
     
     def __init__(self, senha, pessoa, pessoaId):
