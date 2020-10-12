@@ -11,7 +11,7 @@ class EnumSexo(enum.Enum):
 class Pessoa(Db.Model):
     __tablename__ = "pessoa"
     
-    pessoaId = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True)
     nome = db.Column(db.String(20), nullable = False)
     sobrenome = db.Column(db.String(20), nullable = False)
     sexo = db.Column(db.Enum('F', 'M', 'I', name="enumgeneros"), default = 'I', nullable = False)
