@@ -2,6 +2,7 @@ from flask import Flask, jsonify
 from flask_restful import Api
 from resources.sintoma import Sintoma
 from resources.droga import Droga 
+from resources.ficha_medica import FichaMedica
 # from resources.hotel import Hoteis, Hotel
 # from resources.usuario import User, UserRegister, UserLogin, UserLogout
 # from flask_jwt_extended import JWTManager
@@ -30,6 +31,7 @@ def cria_banco():
 
 api.add_resource(Sintoma, '/sintoma')
 api.add_resource(Droga, '/droga')
+api.add_resource(FichaMedica, '/fichaMedica')
 
 if __name__ == '__main__':
     from sql_alchemy import banco
