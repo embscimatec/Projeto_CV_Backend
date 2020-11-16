@@ -30,7 +30,6 @@ class FichaMedicaModel(banco.Model):
             'esta_gravida': self.esta_gravida,
             'problemas_hemorragia': self.problemas_hemorragia,
             'tipo_sanguineo': self.tipo_sanguineo
-            #'ficha_medica_drogas' : [ficha_medica_droga.json() for ficha_medica_droga in self.ficha_medica_drogas]
         }
     
     def save_ficha_medica(self):
