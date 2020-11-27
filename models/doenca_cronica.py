@@ -1,28 +1,27 @@
 from sql_alchemy import banco
 #from models.doenca_cronica_sintoma import DoencaCronicaSintomaModel
 
-class SintomaModel(banco.Model):
-    __tablename__ = 'sintomas'
+class DoencaCronicaModel(banco.Model):
+    __tablename__ = 'doenca_cronica'
 
-    sintoma_id = banco.Column(banco.Integer, primary_key=True) #autoincrement
+    doenca_cronica_id = banco.Column(banco.Integer, primary_key=True) #autoincrement
     nome = banco.Column(banco.String(60))
-    doencas_cronicas = banco.relationship("DoencaCronicaSintomaModel", back_populates="sintoma")
-
+    sintomas = banco.relationship("DoencaCronicaSintomaModel", back_populates="doenca_cronica")
+    
 
     def __init__(self, nome):
         self.nome = nome
 
     def json(self):
         return {
-            'sintoma_id' : self.sintoma_id,
+            'doenca_cronica_id' : self.doenca_cronica_id,
             'nome': self.nome
         }
     
-    def save_sintoma(self):
+    def save_doenca_cronica(self):
         banco.session.add(self)
         banco.session.commit()
     
-    def delete_sintoma(self):
+    def delete_doenca_cronica(self):
         banco.session.delete(self)
         banco.session.commit()
-

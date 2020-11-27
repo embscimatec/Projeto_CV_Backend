@@ -1,5 +1,8 @@
 from sql_alchemy import banco
 from models.ficha_medica_droga import FichaMedicaDrogaModel
+from models.ficha_medica_doenca_cronica import FichaMedicaDoencaCronica
+from models.ficha_medica_alergia import FichaMedicaAlergiaModel
+from models.ficha_medica_medicamento import FichaMedicaMedicamentoModel
 
 class FichaMedicaModel(banco.Model):
     __tablename__ = 'ficha_medica'
@@ -12,6 +15,9 @@ class FichaMedicaModel(banco.Model):
     problemas_hemorragia = banco.Column(banco.Boolean)
     tipo_sanguineo = banco.Column(banco.Enum("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"))
     drogas = banco.relationship("FichaMedicaDrogaModel", back_populates="ficha_medica")
+    doencas_cronicas = banco.relationship("FichaMedicaDoencaCronicaModel", back_populates="ficha_medica")
+    alergias = banco.relationship("FichaMedicaAlergiaModel", back_populates="ficha_medica")
+    medicamentos = banco.relationship("FichaMedicaMedicamentoModel", back_populates="ficha_medica")
 
     def __init__(self, problemas_cicatrizacao, teve_filho, ja_fez_cirurgia, esta_gravida, problemas_hemorragia, tipo_sanguineo):
         self.problemas_cicatrizacao = problemas_cicatrizacao
@@ -30,6 +36,10 @@ class FichaMedicaModel(banco.Model):
             'esta_gravida': self.esta_gravida,
             'problemas_hemorragia': self.problemas_hemorragia,
             'tipo_sanguineo': self.tipo_sanguineo
+            #colocar drogas
+            #colocar doencas_cronicas
+            #colocar alergias
+            #colocar medicamentos
         }
     
     def save_ficha_medica(self):
