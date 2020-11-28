@@ -19,5 +19,5 @@ class Instituicao(Resource):
         try:
             instituicao.save_instituicao()
         except:
-            return {'message': 'Nao foi possilvel criar essa instituicao'}, 500 # Internal Server Error
+            return {'message': 'Nao foi possivel criar essa instituicao'}, 500 # Internal Server Error
         return instituicao.json(), 200 # Success!

@@ -10,6 +10,7 @@ class TelefoneModel(banco.Model):
 
     # Relações
     pessoa_id = banco.Column(banco.Integer, banco.ForeignKey('pessoa.pessoa_id'), nullable=False)
+    contato_emergencia_id = banco.Column(banco.Integer, banco.ForeignKey('contato_emergencia.contato_emergencia_id'), nullable=False)
 
     def __init__(self, DDI, DDD, numero):
         self.DDI = DDI
