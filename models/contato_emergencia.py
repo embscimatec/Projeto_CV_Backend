@@ -10,6 +10,7 @@ class ContatoEmergenciaModel(banco.Model):
 
     # Relações
     telefones = banco.relationship("TelefoneModel", backref="contato_emergencia", lazy=True)
+    estudantes = banco.relationship("EstudanteModel", backref="contato_emergencia", lazy=True)
 
     def __init__(self, nome, relacao, email):
         self.nome = nome
