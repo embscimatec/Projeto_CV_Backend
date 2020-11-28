@@ -16,6 +16,8 @@ class PessoaModel(banco.Model):
     instituicao_id = banco.Column(banco.Integer, banco.ForeignKey('instituicao.instituicao_id'), nullable=False)
     endereco_id = banco.Column(banco.Integer, banco.ForeignKey('endereco.endereco_id'), nullable=False)
 
+    imagens = banco.relationship("ImagemModel", backref="pessoa", lazy=True)
+
     def __init__(self, nome, sobrenome, sexo, cpf, email, data_de_nascimento, tem_gemeo):
         self.nome = nome
         self.sobrenome = sobrenome
