@@ -1,10 +1,12 @@
 from sql_alchemy import banco
+from models.ficha_medica_droga import FichaMedicaDrogaModel
 
 class DrogaModel(banco.Model):
     __tablename__ = 'droga'
 
     droga_id = banco.Column(banco.Integer, primary_key=True) #autoincrement
     nome = banco.Column(banco.String(60))
+    fichas_medicas = banco.relationship("FichaMedicaDrogaModel", back_populates="droga")
 
     def __init__(self, nome):
         self.nome = nome
